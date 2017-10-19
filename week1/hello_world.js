@@ -9,4 +9,11 @@ app.get('/', (req, res)=>{
 	res.send("Hello, World!")
 })
 
-app.listen(8000)
+app.use((req, res)=>{
+	res.sendStatus(404)
+})
+
+var server = app.listen(3000, ()=>{
+	const port = server.address().port
+	console.log('Express server listening on port %s', port)
+})
