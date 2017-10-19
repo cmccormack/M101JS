@@ -1,5 +1,7 @@
-var http = require('http')
+const app = require('express')()
 
-var server = http.createServer((req, res)=>{
-	response.writeHead(200, {'Content-Type': 'text/plain'})
+app.get('*', (req, res)=>{
+	res.send("Hello, World!")
+})
 
+app.listen(8000)
