@@ -1,0 +1,22 @@
+{
+  "name": "m101js",
+  "version": "1.0.0",
+  "description": "MongoDB University M101JS: MongoDB for Node.js Developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmccormack/M101JS.git"
+  },
+  "author": "Chris McCormack https://mackville.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmccormack/M101JS/issues"
+  },
+  "homepage": "https://github.com/cmccormack/M101JS#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
