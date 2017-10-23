@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>M101JS Put Express</title>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <h3>Pick a fruit:</h3>
+        <form action="/favorite_fruit" method="POST">
+          {% set index = 0 %}
+          {% for fruit in fruits %}
+            <input type="radio" value="{{ fruit }}" id="radioFruit{{ index }}" name="fruit" />
+            <label for="radioFruit{{ index }}">{{ fruit }}</label><br />
+            {% set index = index + 1 %}
+          {% endfor %}
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
