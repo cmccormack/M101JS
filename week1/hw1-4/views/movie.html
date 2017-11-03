@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>M101JS Add Movies HW1-4</title>
+    </head>
+    <body>
+      <style>
+      label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+      }
+      </style>
+        <h1>{{ title }}</h1>
+        <h3>Add Movie to Database:</h3>
+        <form action="/movie_added" method="POST">
+          <label for"title">Movie Name:</label>
+          <input type="text" placeholder="Fight Club" id="title" name="title" >
+          <br />
+          <label for"release-year">Release Year:</label>
+          <input type="text" placeholder="1999" id="release-year" name="year" >
+          <br />
+          <label for"imdb">IMDB:</label>
+          <input type="text" placeholder="tt0137523" id="imdb" name="imdb" >
+          <br />
+          <button type="submit">Submit!</button>
+        </form>
+    </body>
+</html>

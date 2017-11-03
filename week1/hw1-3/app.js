@@ -9,7 +9,7 @@ app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 
-MongoClient.connect("mongodb://localhost:27017/m101", function(err, db) {
+MongoClient.connect("mongodb://chris:8NssLr4XMiBAgwNmGhrH99sf@ds044689.mlab.com:44689/m101js", function(err, db) {
 
     if(err) throw err;
 
