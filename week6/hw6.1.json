@@ -1,0 +1,59 @@
+db.companies.aggregate( [
+    { $match: { "relationships.person": { $ne: null } } },
+    { $project: { relationships: 1, _id: 0, name: 1 } },
+    { $unwind: "$relationships" },
+    { $group: {
+        _id: "$relationships.person.permalink",
+        companies: { $addToSet: "$name" }
+    } },
+    { $project: { companies: { $size: "$companies" } } },
+    { $sort: { companies: -1 } }
+] )
+
+
+
+db.companies.aggregate( [
+    { $match: { "relationships.person": { $ne: null } } },
+    { $project: { relationships: 1, _id: 0, name: 1 } },
+    { $limit: 2 }
+] ).pretty()
+
+Result:
+
+{
+        "name" : "AdventNet",
+        "relationships" : [
+                {
+                        "is_past" : true,
+                        "title" : "CEO and Co-Founder",
+                        "person" : {
+                                "first_name" : "Sridhar",
+                                "last_name" : "Vembu",
+                                "permalink" : "sridhar-vembu"
+                        }
+                },
+                {
+                        "is_past" : true,
+                        "title" : "VP of Business Dev",
+                        "person" : {
+                                "first_name" : "Neil",
+                                "last_name" : "Butani",
+                                "permalink" : "neil-butani"
+                        }
+                },
+                ...
+
+
+
+db.companies.aggregate( [
+    { $match: { "relationships.person": { $ne: null } } },
+    { $project: { relationships: 1, _id: 0, name: 1 } },
+    { $unwind: "$relationships" },
+    { $limit: 2 }
+] )
+
+Result:
+
+{ "name" : "AdventNet", "relationships" : { "is_past" : true, "title" : "CEO and Co-Founder", "person" : { "first_name" : "Sridhar", "last_name" : "Vembu", "permalink" : "sridhar-vembu" } } }
+{ "name" : "AdventNet", "relationships" : { "is_past" : true, "title" : "VP of Business Dev", "person" : { "first_name" : "Neil", "last_name" : "Butani", "permalink" : "neil-butani" } } }
+
